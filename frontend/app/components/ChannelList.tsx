@@ -12,7 +12,6 @@ import ErrorMessage from "./ErrorMessage";
 import { extractVideoData, toggleFavorite } from "../utils";
 import api from "../services/api";
 import { Video, WatchHistoryResponse } from "../types";
-import { SET_VIDEO } from "../actions";
 import LoadingSpinner from "./LoadingSpinner";
 
 const ChannelList: React.FC = () => {
@@ -66,7 +65,6 @@ const ChannelList: React.FC = () => {
           key={channel.id + id}
           href={`/details/${channel.id}`}
           passHref
-          onClick={() => dispatch({ type: SET_VIDEO, payload: channel })}
         >
           <div className="bg-white shadow-md rounded-lg flex flex-col items-center w-full border-2 border-gray-300 relative transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:bg-gray-800">
             <Image

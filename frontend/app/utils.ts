@@ -79,9 +79,32 @@ export const extractVideoData = (data: WatchHistoryResponse[]): Video[] =>
   Array.isArray(data) ? data.map((entry) => entry.video) : [];
 
 // Format Release Date to ddMMYYYY
-export const formattedDate = (releaseDate: string) =>
+export const formattedDate = (releaseDate: string): string =>
   new Date(releaseDate).toLocaleDateString("en-GB", {
     day: "2-digit",
-    month: "long",
+    month: "short",
     year: "numeric",
   });
+
+export const formattedMinString = (time: number): string =>
+  time > 1 ? "mins" : "min";
+
+export const formatCategoryDisplay = (
+  categories: { id: string; name: string }[]
+) => {
+  // Filter categories to exclude "All" and map to their names
+  const filteredCategories = categories
+    .filter((category) => category.name !== "All")
+    .map((category) => category.name);
+
+  // Get the first category as the main category
+  const mainCategory = filteredCategories[0];
+
+  // Join the rest of the categories as secondary categories, if any
+  const secondaryCategories = filteredCategories.slice(1).join(", ");
+
+  // Return formatted string
+  return `${mainCategory}${
+    secondaryCategories ? `, ${secondaryCategories}` : ""
+  }`;
+};

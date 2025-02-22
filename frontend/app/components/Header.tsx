@@ -74,7 +74,7 @@ const Header = () => {
       {/* Logo */}
       <Link href="/" legacyBehavior passHref>
         <a className="flex items-center space-x-2">
-          <Image src="/logo.svg" alt="Logo" width={32} height={32} />
+          <Image priority src="/logo.svg" alt="Logo" width={32} height={32} />
           <span className="text-xl font-bold hidden sm:inline">Streamify</span>
         </a>
       </Link>

@@ -5,13 +5,9 @@ import Image from "next/image";
 import { FiHeart } from "react-icons/fi";
 import { SectionProps } from "../types";
 import LoadingSpinner from "./LoadingSpinner";
-import { SET_VIDEO } from "../actions";
-import { useAppContext } from "../context";
 
 const Section = React.memo(
   ({ title, videos, loading, toggleFavorite, favorites }: SectionProps) => {
-    const { dispatch } = useAppContext();
-
     return (
       <div className="mb-6">
         <h2 className="text-xl font-bold mb-2">{title}</h2>
@@ -30,12 +26,7 @@ const Section = React.memo(
             }}
           >
             {videos.map((video) => (
-              <Link
-                key={video.id}
-                href={`/details/${video.id}`}
-                passHref
-                onClick={() => dispatch({ type: SET_VIDEO, payload: video })}
-              >
+              <Link key={video.id} href={`/details/${video.id}`} passHref>
                 <div className="w-40 mb-4 flex-shrink-0 relative transform transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:bg-gray-800">
                   <Image
                     src={video.thumbnail}

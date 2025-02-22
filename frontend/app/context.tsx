@@ -14,12 +14,14 @@ const initialState: AppState = {
     description: "",
     thumbnail: "",
     muxAssetId: "",
-    videoUrl: "",
+    muxPlaybackId: "",
     duration: 0,
     releaseDate: "",
     views: 0,
     createdAt: "",
-    updatedAt: ""
+    updatedAt: "",
+    categories: [],
+    aspectRatio: ""
   },
   isSidebar: false,
   loadingCategories: true

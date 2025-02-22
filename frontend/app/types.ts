@@ -55,11 +55,9 @@ export interface AllCategories extends CategoriesResponse {
 }
 
 export interface SidebarProps {
-  // isOpen: boolean;
   showChannels: boolean;
   setShowChannels: (state: boolean) => void;
   toggleChannels: () => void;
-  // toggleSidebar: () => void;
 }
 
 export interface WatchHistoryResponse {
@@ -80,6 +78,7 @@ export interface Video {
   duration: number;
   releaseDate: string;
   views: number;
+  categories: { id: string; name: string }[];
   aspectRatio: string;
   createdAt: string;
   updatedAt: string;
